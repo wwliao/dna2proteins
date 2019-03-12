@@ -1,4 +1,4 @@
-### Import all functions
+import argparse
 
 ## Function to read fasta files
 
@@ -199,18 +199,12 @@ def main(argv):
     return inputfile, outputfile, printprots
 
 if __name__ == "__main__":
-   inputfile, outputfile, printprots = main(sys.argv[1:])
+    parser = argparse.ArgumentParser()
+    parser.add_argument("inputfile")
+    parser.add_argument("outputfile")
+    args = parser.parse_args()
 
-sequences = read_fasta(inputfile)
-
+sequences = read_fasta(args.inputfile)
 sequences_frames = gen_frames(sequences)
-
 proteins = find_prots(sequences_frames)
-
-if printprots == True:
-    for key, values in proteins.items():
-        print(key)
-        print(values)
-
-if outputfile != "":
-    write_fasta(proteins, outputfile)
+write_fasta(proteins, args.outputfile)
