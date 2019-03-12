@@ -200,11 +200,12 @@ def main(argv):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
+    parser.add_argument("-m", "--methionine", action='store_true')
     parser.add_argument("inputfile")
     parser.add_argument("outputfile")
     args = parser.parse_args()
 
-sequences = read_fasta(args.inputfile)
-sequences_frames = gen_frames(sequences)
-proteins = find_prots(sequences_frames)
+    sequences = read_fasta(args.inputfile)
+    sequences_frames = gen_frames(sequences)
+    proteins = find_prots(sequences_frames)
 write_fasta(proteins, args.outputfile)
