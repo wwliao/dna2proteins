@@ -146,7 +146,7 @@ def oframe(amino):
     for i in range(0,len(amino)):
         if amino[i]=='M':
             temp = ''.join([amino[i::]])
-            oframe=temp[0:temp.find('_')+1]
+            oframe=temp[0:temp.find('_')]
             oframes.append(oframe)
     return oframes
 
