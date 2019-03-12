@@ -81,7 +81,7 @@ def swap_dna(dnastring):
             aminoacid = table[codon]
             protein.append(aminoacid)
         else:
-            protein.append("N")
+            protein.append("-")
     return "".join(protein)
 
 ## Generates the six possible frames per one sequence
