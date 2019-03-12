@@ -208,4 +208,4 @@ if __name__ == "__main__":
     sequences = read_fasta(args.inputfile)
     sequences_frames = gen_frames(sequences)
     proteins = find_prots(sequences_frames)
-write_fasta(proteins, args.outputfile)
+    write_fasta(proteins, args.outputfile)
