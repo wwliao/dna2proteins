@@ -50,7 +50,7 @@ def write_fasta(dictionary, filename):
             outfile.write("\n".join(textwrap.wrap(value, 60)))
             outfile.write("\n")
 
-    print "Success! File written"
+    print("Success! File written")
 
 ## Swaps DNA sequencs for proteins
 
@@ -182,12 +182,12 @@ def main(argv):
     try:
       opts, args = getopt.getopt(argv,"hi:o:p",["ifile=","ofile="])
     except getopt.GetoptError:
-        print 'dna2proteins.py -i <inputfile> -o <outputfile> -p'
+        print('dna2proteins.py -i <inputfile> -o <outputfile> -p')
         sys.exit(2)
     for opt, arg in opts:
         if opt == '-h':
-            print 'dna2proteins.py -i <inputfile> -o <outputfile> -p'
-            print "-p prints the protein sequences in the terminal"
+            print('dna2proteins.py -i <inputfile> -o <outputfile> -p')
+            print("-p prints the protein sequences in the terminal")
             sys.exit()
         elif opt in ("-i", "--ifile"):
             inputfile = arg
@@ -209,8 +209,8 @@ proteins = find_prots(sequences_frames)
 
 if printprots == True:
     for key, values in proteins.items():
-        print key
-        print values
+        print(key)
+        print(values)
 
 if outputfile != "":
     write_fasta(proteins, outputfile)
